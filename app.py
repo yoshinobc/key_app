@@ -1,9 +1,9 @@
-class AppResource(object):
-    def on_post(self,req,resp):
+from app_key import create_app
 
-app = application = falcon.API()
-lock = lock.Resource()
-unlock = unlock.Resourcec()
+application = create_app()
 
-api.add_route("/lock",lock)
-api.add_route("/unlock",unlock)
+if __name__ == "__main__":
+    from wsgiref import simple_server
+    httpd = simple_server.make_server("localhost",80000,application)
+    httpd.serve_forever()
+    
