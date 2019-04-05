@@ -1,5 +1,5 @@
 import falcon
-import ..tools import button
+from ..tools import button
 
 class lock(object):
 
