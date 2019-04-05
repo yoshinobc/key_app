@@ -1,17 +1,17 @@
 import falcon
 import ..tools import button
 
-class lock(object):
+class unlock(object):
 
     def on_post(self,req,resp):
         import RPi.GPIO as GPIO
 
         resp.status = falcon.HTTP_400
 
-        button.lock()
+        button.unlock()
 
         resp.status = falcon.HTTP_200
 
-        resp.body = '{"message":locked}'
+        resp.body = '{"message":unlocked}'
 
         return resp
