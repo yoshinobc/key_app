@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private val compositeSubscription = CompositeSubscription()
 
-    private val ENDPOINT = "192.168.0.36:9000/locks"
+    private val ENDPOINT = "url"
 
     val gsonBuilder = GsonBuilder()
         .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             */
             if (isChacked) {
                 GlobalScope.launch{
-                    val url : String = "http://192.168.0.36:9000/locks"
+                    val url : String = "url"
                     val request: Request = Request.Builder().url(url).build()
                     val response = client.newCall(request).execute()
                     val result: String? = response.body()?.string()
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 //textView.text = getString(R.string.lock)
             } else {
                 GlobalScope.launch{
-                    val url : String = "http://192.168.0.36:9000/unlocks"
+                    val url : String = "url"
                     val request: Request = Request.Builder().url(url).build()
                     val response = client.newCall(request).execute()
                     val result: String? = response.body()?.string()
