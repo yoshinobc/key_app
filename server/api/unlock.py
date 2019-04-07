@@ -1,14 +1,15 @@
 import falcon
-import ..tools import button
-import ..tools import check_user
+import json
+from ..tools import button
+from ..tools import check_user
 
 class unlock(object):
 
-    def on_post(self,req,resp):
+    def on_get(self,req,resp):
         import RPi.GPIO as GPIO
 
-        resp.status = falcon.HTTP_400
-        flag = data["key_flag"]
+        #flag = data["key_flag"]
+        flag = False
         if flag:
             body = req.get_header("Authorization")
             data = json.loads(body)
@@ -20,7 +21,7 @@ class unlock(object):
                 return resp
 
         button.unlock()
-
+        print("unlock")
         resp.status = falcon.HTTP_200
 
         resp.body = '{"message":unlocked}'

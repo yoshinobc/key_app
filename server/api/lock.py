@@ -1,16 +1,17 @@
 import falcon
+import json
 from ..tools import button
 from ..tools import check_user
 
 class lock(object):
 
-    def on_post(self,req,resp):
+    def on_get(self,req,resp):
         import RPi.GPIO as GPIO
 
-        resp.status = falcon.HTTP_400
-        body = req.stream.read()
-        data = json.loads(body)
-        flag = data["key_flag"]
+        #body = req.stream.read()
+        #data = json.loads(body)
+        #flag = data["key_flag"]
+        flag = False
         if flag:
             body = req.get_header("Authorization")
             data = json.loads(body)
@@ -22,7 +23,7 @@ class lock(object):
                 return resp
 
         button.lock()
-
+        print("lock")
         resp.status = falcon.HTTP_200
 
         resp.body = '{"message":successful locked}'

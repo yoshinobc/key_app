@@ -17,10 +17,12 @@ class add_key(object):
         token = secrets.token_hex()
         code = add_user(name,token)
         if code:
+            print("Successful Add User")
             resp.status = falcon.HTTP_200
             resp.body = '{"message":successful add key}'
             resp.set_header(token)
         else:
+            print("Fail Add User")
             resp.status = falcon.HTTP_400
             resp.body = '{"message":fail add key}'
 

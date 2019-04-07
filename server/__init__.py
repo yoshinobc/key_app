@@ -1,6 +1,6 @@
 import falcon
 from server.api.lock import lock
-from server.api.lock import unlock
+from server.api.unlock import unlock
 from server.api.add_key import add_key
 
 def create_app():
@@ -9,9 +9,9 @@ def create_app():
     api.add_route("/locks",locks)
 
     unlocks = unlock()
-    api.add_route("/unlocks",unlock)
+    api.add_route("/unlocks",unlocks)
 
-    add_key = add_key()
-    api.add_route("/addkey",add_key)
+    add_keys = add_key()
+    api.add_route("/addkeys",add_keys)
 
     return api
