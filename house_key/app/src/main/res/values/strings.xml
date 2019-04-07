@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">house_key</string>
+    <string name="lock">Locked</string>
+    <string name="unlock">Un Locked</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+</resources>
